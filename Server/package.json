@@ -1,0 +1,24 @@
+{
+	"name": "trc-dashboard",
+	"version": "1.0.0",
+	"description": "Dashboard for COM-IOT's TRC solution",
+	"main": "/src/index.js",
+	"scripts": {
+		"start": "nodemon src/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://Safi@dev.azure.com/com-iot/TRC%20Dashboard/_git/TRC%20Dashboard"
+	},
+	"author": "Mohamed Assem Assaf",
+	"license": "ISC",
+	"dependencies": {
+		"express": "4.17.1",
+		"body-parser": "1.19.0",
+		"mongoose": "5.8.11",
+		"socket.io": "2.3.0",
+		"nodemon": "2.0.2",
+		"cors": "2.8.5"
+	}
+}
