@@ -1,0 +1,33 @@
+.footer {
+    background: whitesmoke;
+    color: white;
+    position: fixed;
+    height: 7vh;
+    top: calc( 100vh - 7vh);
+    width: calc(100vw - 300px);
+}
+
+.footer-logo{
+    left: 35%;
+    position: absolute;
+    bottom: 1%;
+}
+
+@media ( max-width: 768px ) {
+    .footer{
+        width: 100%;
+        left: 0;
+    }
+}
+
+@media ( min-width: 768px) {
+    .footer{
+        display: none;
+    }
+}
+
+/*
+a83b00
+2200a8
+00a843
+*/

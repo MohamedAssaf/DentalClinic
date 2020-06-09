@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const io = require('socket.io')();
 const cors = require('cors');
+const routes = require('./Routes');
+
 const app = express();
 
 let port = 3000;
@@ -13,8 +15,8 @@ let socketPort = 3001;
 
 //Cors
 
-var whitelist = ['http://*:4200']
 //TODO Match cors to anything coming from react app 
+var whitelist = ['http://*:4200']
 var corsOptions = {
   origin: function (origin, callback) {
     console.log(origin)
@@ -26,17 +28,16 @@ var corsOptions = {
   }
 }
 
-app.use(cors())
-
+app.use(cors());
 //SocketIO
 io.listen(socketPort);
 io.on('connection', (client) => {
     socketClient=client;
+    global.io = client;
     callHello();
 });
 
 function callHello() {
-    console.log("Hena")
     socketClient.emit("hello", "hello")
 }
 
@@ -51,6 +52,10 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //BodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+//Routes
+app.use('/violations', routes.ViolationRoutes);
+app.use('/counters', routes.CountersRoutes);
 
 app.listen(port, () => {
     console.log('Server is up and running on port number ' + port);

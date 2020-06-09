@@ -86,4 +86,6 @@ data/
 /clientyarn-debug.log*
 /clientyarn-error.log*
 
-/uploads
+
+#Violations images and videos 
+uploads/

@@ -11,6 +11,7 @@ services:
     volumes:
       - "./Client/src:/root/src"
     command : npm start
+    tty: true
   server :
     build:
       context: ./Server
@@ -21,8 +22,12 @@ services:
       - "3001:3001"
       - "3000:3000"
     command : npm start
+    volumes: 
+      - "./Server/src:/Server/src"
+      - "./uploads:/Server/uploads"
     depends_on: 
       - mongo
+    tty: true
   mongo :
     image: mongo
     volumes: 
