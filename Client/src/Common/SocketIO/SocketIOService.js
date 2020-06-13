@@ -12,33 +12,6 @@ function helloSocket () {
     })
 }
 
-function newCounter (cb) {
-    socket.on('newCounter', counter =>{
-        cb(counter);
-    })
-}
-
-function deleteCounter (cb) {
-    socket.on('deleteCounter', counter=> cb(counter))
-}
-
-function updateCounter (cb) {
-    socket.on('updateCounter', counter => cb(counter))
-}
-
-function resetCounter (cb) {
-    socket.on('resetCounter', counter => cb(counter))
-}
-
-function newViolation (cb) {
-    socket.on('newViolation', violation => cb(violation))
-}
-
 export {
-    helloSocket,
-    newCounter,
-    deleteCounter,
-    updateCounter,
-    resetCounter,
-    newViolation
+    helloSocket
 }

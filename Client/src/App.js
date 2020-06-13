@@ -10,13 +10,8 @@ import {
   Toolbar
  } from './Components/Layout';
 import {
-  HomeComponent,
-  ViolationsComponent,
-  SingleViolationComponent,
-  CountersComponent,
-  ViolationAlertComponent
+  HomeComponent
 } from './Components/MainComponents';
-import { newViolation } from './Common/SocketIO/SocketIOService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
@@ -26,14 +21,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      sideDrawerOpen : false,
-      sideDrawerAlertOpen : false,
-      violation : {}
+      sideDrawerOpen : false
     }
-
-    newViolation( violation => {
-      this.setState({violation, sideDrawerAlertOpen:true})
-    })
   }
 
   drawerToggleClickHandler = () => {
@@ -55,14 +44,10 @@ class App extends Component {
     return (
       <Router>
           <SideDrawer show={this.state.sideDrawerOpen}/>
-          <ViolationAlertComponent show={this.state.sideDrawerAlertOpen} violation={this.state.violation}/>
           {backdrop}
           <div className="App">
             <Toolbar drawerClickHandler = {this.drawerToggleClickHandler}/>
             <Switch>
-              <Route path="/violations" component={ViolationsComponent} />
-              <Route path="/singleViolation/:id" component={SingleViolationComponent} />
-              <Route path="/counters" component={CountersComponent} />
               <Route path="/*" component={HomeComponent} />
             </Switch>
           </div>

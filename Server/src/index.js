@@ -43,7 +43,7 @@ function callHello() {
 
 
 //MongoDB
-let mongoDB = "mongodb://mongo:27017/trc_db"
+let mongoDB = "mongodb://mongo:27017/clinic_db"
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
@@ -54,8 +54,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 //Routes
-app.use('/violations', routes.ViolationRoutes);
-app.use('/counters', routes.CountersRoutes);
+
 
 app.listen(port, () => {
     console.log('Server is up and running on port number ' + port);
