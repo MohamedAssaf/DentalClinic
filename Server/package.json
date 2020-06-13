@@ -1,7 +1,7 @@
 {
-	"name": "trc-dashboard",
+	"name": "dental-clinic",
 	"version": "1.0.0",
-	"description": "Dashboard for COM-IOT's TRC solution",
+	"description": "Dashboard for Dental clinic",
 	"main": "/src/index.js",
 	"scripts": {
 		"start": "nodemon src/index.js",
@@ -9,7 +9,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://Safi@dev.azure.com/com-iot/TRC%20Dashboard/_git/TRC%20Dashboard"
+		"url": "https://github.com/MohamedAssaf/DentalClinic.git"
 	},
 	"author": "Mohamed Assem Assaf",
 	"license": "ISC",

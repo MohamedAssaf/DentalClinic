@@ -4,7 +4,7 @@ export default function () {
     helloSocket()
     return(
         <h1>
-            Hey Man from Mano
+            Hey Man from KMDC
         </h1>
     )
 }
