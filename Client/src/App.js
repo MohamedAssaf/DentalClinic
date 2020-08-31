@@ -10,18 +10,25 @@ import {
   Toolbar
  } from './Components/Layout';
 import {
-  HomeComponent
+  LoginComponent,
+  HomeComponent,
+  DoctorPage,
+  AssistantPage,
+  PatientPage
 } from './Components/MainComponents';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
+
+
 
 class App extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      sideDrawerOpen : false
+      sideDrawerOpen : false,
+      loggedIn: true
     }
   }
 
@@ -40,20 +47,30 @@ class App extends Component {
     if(this.state.sideDrawerOpen || this.state.sideDrawerAlertOpen) {
       backdrop = <Backdrop click={this.backdropClickHandler} />
     }
-    
-    return (
-      <Router>
-          <SideDrawer show={this.state.sideDrawerOpen}/>
-          {backdrop}
-          <div className="App">
-            <Toolbar drawerClickHandler = {this.drawerToggleClickHandler}/>
-            <Switch>
-              <Route path="/*" component={HomeComponent} />
-            </Switch>
-          </div>
-      </Router>
-    )
-  } 
+
+    if(!this.state.loggedIn){
+      return (
+        <Router>
+            <SideDrawer show={this.state.sideDrawerOpen}/>
+            {backdrop}
+            <div className="App">
+              <Toolbar drawerClickHandler = {this.drawerToggleClickHandler}/>
+              <Switch>
+                <Route path="/*" component={HomeComponent} />
+                <Route path="/Patient" component={PatientPage} />
+                <Route path="/Assistant" component={AssistantPage} />
+                <Route path="/Doctor" component={DoctorPage} />
+              </Switch>
+            </div>
+        </Router>
+      )
+    }
+    else {
+      return (
+        <LoginComponent />
+      )
+    } 
+  }
 }
 
 export default App;
