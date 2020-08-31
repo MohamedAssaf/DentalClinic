@@ -1,5 +1,5 @@
-.left-side, .right-side{
-    height: 50vh;
+.left-side{
+    height: 100vh;
     width: 100%;
     
 }
@@ -9,16 +9,7 @@
     
 }
 
-.right-side{
-    background-color: beige ;
-}
 
-@media screen and (min-width:768px){
-    
-    .left-side, .right-side{
-        height: 100vh;
-    }
-}
 
 .card{
     height: 370px;

@@ -17,10 +17,16 @@ import {
   PatientPage
 } from './Components/MainComponents';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { connect } from 'react-redux';
 import './App.css';
 
 
+const mapStateToProps = ( state ) => {
+  const { authReducer } = state;
+  return {
+      loggedIn: authReducer.loggedIn,
+  }
+}
 
 class App extends Component {
 
@@ -28,7 +34,6 @@ class App extends Component {
     super(props);
     this.state = {
       sideDrawerOpen : false,
-      loggedIn: true
     }
   }
 
@@ -48,7 +53,7 @@ class App extends Component {
       backdrop = <Backdrop click={this.backdropClickHandler} />
     }
 
-    if(!this.state.loggedIn){
+    if(this.props.loggedIn){
       return (
         <Router>
             <SideDrawer show={this.state.sideDrawerOpen}/>
@@ -73,4 +78,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);

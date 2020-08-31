@@ -1,5 +1,5 @@
 import { AUTH_SUCCESS, AUTH_ERROR } from "./ConstantActionTypes";
-import firebase from "../../services/firebase";
+
 // Signing up with Firebase
 export const signup = (email, password) => async dispatch => {
   try {
@@ -8,3 +8,15 @@ export const signup = (email, password) => async dispatch => {
     
   }
 };
+
+export const signInSuccess = () => {
+  return {
+    type : AUTH_SUCCESS
+  }
+}
+
+export const signInFailed = () => {
+  return {
+    type : AUTH_ERROR
+  }
+}

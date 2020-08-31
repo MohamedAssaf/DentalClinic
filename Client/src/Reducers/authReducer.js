@@ -1,9 +1,9 @@
 import * as cnsts from '../Actions/ConstantActionTypes';
 
 const initialState ={
-    userAuth:{
-        logInClicked: false
-    }
+    logInClicked: false,
+    loggedIn:false
+
 }
 
 
@@ -13,10 +13,18 @@ function logInButtonClicked(state){
     } )
 }
 
+function authSuccessful(state) {
+    return Object.assign({}, state, {
+        loggedIn : true
+    } )
+}
+
 function violationsReducer(state = initialState, action) {
     switch (action.type){
         case cnsts.logInButtonClicked:
-            return logInButtonClicked(state)
+            return logInButtonClicked(state);
+        case cnsts.AUTH_SUCCESS:
+            return authSuccessful(state);
         default:
             return state;
     }
