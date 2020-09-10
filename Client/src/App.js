@@ -25,6 +25,7 @@ const mapStateToProps = ( state ) => {
   const { authReducer } = state;
   return {
       loggedIn: authReducer.loggedIn,
+      authFailed: authReducer.authFailed
   }
 }
 
@@ -72,7 +73,7 @@ class App extends Component {
     }
     else {
       return (
-        <LoginComponent />
+        <LoginComponent authFailed={this.props.authFailed} />
       )
     } 
   }

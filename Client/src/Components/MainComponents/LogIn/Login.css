@@ -5,10 +5,15 @@
 }
 
 .left-side{
-    background-color: maroon;
+    background-color: #301934;
     
 }
 
+.login-error{
+    text-align: center;
+    color: red !important;
+    font-weight: bold;
+}
 
 
 .card{
